@@ -10,21 +10,29 @@ function validation(event) {
   if (!fName.checkValidity()) {
     document.getElementById("firstnameError").innerHTML = fName.validationMessage;
     erros.push('firstnameError');
+  } else {
+    document.getElementById("firstnameError").innerHTML = '';
   }
 
   if (!lName.checkValidity()) {
     document.getElementById("lastnameError").innerHTML = lName.validationMessage;
     errors.push('lastnameError');
+  } else {
+    document.getElementById("lastnameError").innerHTML = '';
   }
 
   if (!email.checkValidity()) {
     document.getElementById("emailError").innerHTML = email.validationMessage;
     errors.push('emailError');
+  } else {
+    document.getElementById("emailError").innerHTML = '';
   }
 
   if (!password.checkValidity()) {
     document.getElementById("passwordError").innerHTML = password.validationMessage;
     errors.push('passwordError');
+  } else {
+    document.getElementById("passwordError").innerHTML = '';
   }
 
   setTimeout(() => {
