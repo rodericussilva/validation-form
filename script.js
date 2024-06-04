@@ -26,4 +26,10 @@ function validation(event) {
     document.getElementById("passwordError").innerHTML = password.validationMessage;
     errors.push('passwordError');
   }
+
+  setTimeout(() => {
+    errors.forEach((error) => {
+      document.getElementById(error).innerHTML = '';
+    });
+  }, 5000);
 }
