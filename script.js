@@ -9,49 +9,41 @@ function validation(event) {
 
   if (!fName.checkValidity()) {
     document.getElementById("firstnameError").innerHTML = fName.validationMessage;
-    erros.push('firstnameError');
+    errors = true;
   } else {
     document.getElementById("firstnameError").innerHTML = '';
   }
 
   if (!lName.checkValidity()) {
     document.getElementById("lastnameError").innerHTML = lName.validationMessage;
-    errors.push('lastnameError');
+    errors = true;
   } else {
     document.getElementById("lastnameError").innerHTML = '';
   }
 
   if (!email.checkValidity()) {
     document.getElementById("emailError").innerHTML = email.validationMessage;
-    errors.push('emailError');
+    errors = true;
   } else {
     document.getElementById("emailError").innerHTML = '';
   }
 
   if (!password.checkValidity()) {
     document.getElementById("passwordError").innerHTML = password.validationMessage;
-    errors.push('passwordError');
+    errors = true;
   } else {
     document.getElementById("passwordError").innerHTML = '';
   }
 
-  setTimeout(() => {
-    errors.forEach((error) => {
-      document.getElementById(error).innerHTML = '';
-    });
-  }, 5000);
-
-  if (errors.length === 0) {
+  if (errors) {
+    setTimeout(() => {
+      document.querySelectorAll('.error').forEach((element) => {
+        element.textContent = '';
+      });
+    }, 5000);
+  } else {
     alert('Formulário enviado com sucesso!');
     document.getElementById('registerForm').reset();
-  } else {
-    alert('Por favor, corrija os erros no formulário antes de enviar.');
   }
-}
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById('registerForm');
-    form.addEventListener('submit', validation);
-  });
 
 }
